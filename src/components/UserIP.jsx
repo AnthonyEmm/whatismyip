@@ -8,9 +8,10 @@ function UserIP() {
   const [countryCode, setCountryCode] = useState("");
 
   useEffect(() => {
+    const apiKey = import.meta.env.VITE_API_KEY;
     axios
       .get(
-        `https://geo.ipify.org/api/v2/country,city?apiKey=at_9Xawcjq0FLqO5sg2FbkfxmySXhAeY&ipAddress=`,
+        `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=`,
       )
       .then(({ data }) => {
         setIp(data.ip);
